@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sewa Bot Deline Clarissa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #8e44ad;
+            --secondary: #9b59b6;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --accent: #e74c3c;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            transform: rotate(30deg);
+            animation: shine 5s infinite;
+        }
+        
+        @keyframes shine {
+            0% { transform: rotate(30deg) translate(-30%, -30%); }
+            100% { transform: rotate(30deg) translate(30%, 30%); }
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .pricing-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .pricing-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+        }
+        
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .price-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border: 2px solid #eee;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .price-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(142, 68, 173, 0.2);
+        }
+        
+        .price-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .price-card h3 {
+            color: var(--dark);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .price-card h3 i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin: 15px 0;
+        }
+        
+        .benefits-section {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .benefit-category {
+            margin-bottom: 25px;
+        }
+        
+        .benefit-category h3 {
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .benefit-category h3 i {
+            margin-right: 10px;
+            color: var(--secondary);
+            width: 30px;
+            text-align: center;
+        }
+        
+        .benefit-list {
+            list-style-type: none;
+        }
+        
+        .benefit-list li {
+            padding: 8px 0;
+            padding-left: 40px;
+            position: relative;
+        }
+        
+        .benefit-list li::before {
+            content: "\f00c";
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+            position: absolute;
+            left: 15px;
+            color: var(--primary);
+        }
+        
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .cta-section h2::after {
+            background: white;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            background: var(--light);
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn-wa {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--dark);
+            font-size: 0.9rem;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: bold;
+        }
+        
+        .ribbon {
+            position: absolute;
+            top: 10px;
+            right: -30px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 30px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .price-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                margin: 5px 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://files.catbox.moe/wl418i.jpg" alt="Deline Clarissa Bot" class="profile-img">
+            <h1>SEWA BOT DELINE CLARISSA</h1>
+            <p class="tagline">Solusi Cerdas untuk Mengelola Grup WhatsApp Anda</p>
+        </header>
+        
+        <section class="pricing-section">
+            <h2><i class="fas fa-tags"></i> Daftar Harga Sewa</h2>
+            <p>Tersedia berbagai pilihan paket sewa dengan harga terjangkau dan manfaat maksimal</p>
+            
+            <div class="price-grid">
+                <div class="price-card">
+                    <div class="ribbon">POPULER</div>
+                    <h3><i class="fas fa-shopping-cart"></i> 1 Minggu</h3>
+                    <div class="price">Rp.3.000</div>
+                    <p>Cocok untuk mencoba fitur bot sebelum berlangganan</p>
+                </div>
+                
+                <div class="price-card">
+                    <h3><i class="fas fa-shopping-cart"></i> 1 Bulan</h3>
+                    <div class="price">Rp.10.000</div>
+                    <p><span class="highlight">Free Premium 30 hari</span> untuk yang menyewa</p>
+                </div>
+                
+                <div class="price-card">
+                    <h3><i class="fas fa-shopping-cart"></i> 3 Bulan</h3>
+                    <div class="price">Rp.30.000</div>
+                    <p><span class="highlight">Free Premium 90 hari</span> untuk yang menyewa</p>
+                </div>
+                
+                <div class="price-card">
+                    <h3><i class="fas fa-shopping-cart"></i> 8 Bulan</h3>
+                    <div class="price">Rp.80.000</div>
+                    <p><span class="highlight">Free Premium 60 hari</span> untuk yang menyewa</p>
+                </div>
+                
+                <div class="price-card">
+                    <div class="ribbon">TERBAIK</div>
+                    <h3><i class="fas fa-shopping-cart"></i> Permanent</h3>
+                    <div class="price">Rp.200.000</div>
+                    <p><span class="highlight">Free Permanent Premium</span> untuk yang menyewa</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="benefits-section">
+            <h2><i class="fas fa-star"></i> Keuntungan Sewa Bot</h2>
+            
+            <div class="benefit-category">
+                <h3><i class="fas fa-gift"></i> Bonus Khusus:</h3>
+                <ul class="benefit-list">
+                    <li>Sewa 1 Bulan = Free Premium 30 hari</li>
+                    <li>Sewa 3 Bulan = Free Premium 90 hari</li>
+                    <li>Sewa 8 Bulan = Free Premium 60 hari</li>
+                    <li>Sewa Permanent = Free Permanent (Untuk Yang Menyewa)</li>
+                </ul>
+            </div>
+            
+            <div class="benefit-category">
+                <h3><i class="fas fa-shield-alt"></i> Perlindungan Grup:</h3>
+                <ul class="benefit-list">
+                    <li>Anti Virus - Mencegah penyebaran link berbahaya</li>
+                    <li>Anti Toxic - Mendeteksi dan mencegah konten negatif</li>
+                    <li>Anti Spam - Membatasi pesan berulang yang mengganggu</li>
+                    <li>Anti Link Grup lain - Mengontrol promosi grup lain</li>
+                </ul>
+            </div>
+            
+            <div class="benefit-category">
+                <h3><i class="fas fa-gamepad"></i> Hiburan Grup:</h3>
+                <ul class="benefit-list">
+                    <li>Tebak-tebakan seru untuk mengakrabkan anggota</li>
+                    <li>Teka teki yang menantang</li>
+                    <li>Game RPG dengan fitur lengkap</li>
+                    <li>Dan berbagai game seru lainnya</li>
+                </ul>
+            </div>
+            
+            <div class="benefit-category">
+                <h3><i class="fas fa-tools"></i> Fitur Maker & Tools:</h3>
+                <ul class="benefit-list">
+                    <li>Membuat Stiker dengan mudah</li>
+                    <li>Edit Nama grup dan anggota</li>
+                    <li>Add/Kick Pakai Bot</li>
+                    <li>Dan 1220+ Fitur Lainnya yang siap membantu</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section class="cta-section">
+            <h2><i class="fas fa-hand-holding-heart"></i> Tertarik Menggunakan Bot Kami?</h2>
+            <p class="cta-text">Deline Clarissa Bot siap membantu mengelola grup WhatsApp Anda dengan fitur lengkap dan perlindungan maksimal. Hubungi kami sekarang untuk informasi lebih lanjut!</p>
+            
+            <div class="btn-group">
+                <a href="https://wa.me/6281277721026" class="btn btn-wa"><i class="fab fa-whatsapp"></i> Hubungi via WhatsApp</a>
+                <a href="https://chat.whatsapp.com/LaX2unKiBKK9qVhaqfDGJd" class="btn"><i class="fas fa-users"></i> Join Grup WhatsApp</a>
+            </div>
+        </section>
+        
+        <footer>
+            <p>&copy; 2023 Deline Clarissa Bot. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
